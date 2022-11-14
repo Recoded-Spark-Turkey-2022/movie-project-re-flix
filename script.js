@@ -54,6 +54,14 @@ const renderMovies = (movies) => {
   });
 };
 
+async function getSingleActor() {
+  const response = await fetch('http://image.tmdb.org/t/p/w185');// Is it actors API? Or we need to use a different thing to get actors?
+  const actor = await response.json();
+    return actor;
+    fetchActorJSON().then(actor => {
+    actor; // should fetch a single actor ??
+  });
+  } 
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovie = (movie) => {
   CONTAINER.innerHTML = `
