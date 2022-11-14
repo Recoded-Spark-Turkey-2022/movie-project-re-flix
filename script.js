@@ -4,10 +4,6 @@ const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 const PROFILE_BASE_URL = "http://image.tmdb.org/t/p/w185";
 const BACKDROP_BASE_URL = "http://image.tmdb.org/t/p/w780";
 const CONTAINER = document.querySelector(".container");
-//get actors
-// TMD_BASE_URL / movie/{movieid} / credits?api-key=xxx & language=en-US
-//https://api.themoviedb.org/3/ movie/436270 /credits?api_key=542003918769df50083a13c415bbc602&language=en-US
-
 
 // Don't touch this function please
 const autorun = async () => {
@@ -37,10 +33,10 @@ const fetchMovies = async () => {
 };
 //Fetching actors
 const fetchActors = async (id) => {
-  const url = constructUrl(`movie/${id}/credits`);
-  const res = await fetch(url);
+  const url = constructUrl(`movie/${id}/credits`); //creates new URL 
+  const res = await fetch(url); //fetches URL
   //console.log(res.json())
-  return res.json();
+  return res.json(); //returns into JSON
 };
 
 // Don't touch this function please. This function is to fetch one movie.
