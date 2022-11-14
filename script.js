@@ -80,4 +80,4 @@ const renderMovie = (movie) => {
 
 document.addEventListener("DOMContentLoaded", autorun);
 
-//!ToggleButton display
+
