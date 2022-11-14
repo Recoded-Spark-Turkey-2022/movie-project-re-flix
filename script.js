@@ -4,6 +4,10 @@ const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 const PROFILE_BASE_URL = "http://image.tmdb.org/t/p/w185";
 const BACKDROP_BASE_URL = "http://image.tmdb.org/t/p/w780";
 const CONTAINER = document.querySelector(".container");
+//get actors
+// TMD_BASE_URL / movie/{movieid} / credits?api-key=xxx & language=en-US
+//https://api.themoviedb.org/3/ movie/436270 /credits?api_key=542003918769df50083a13c415bbc602&language=en-US
+
 
 // Don't touch this function please
 const autorun = async () => {
@@ -21,13 +25,21 @@ const constructUrl = (path) => {
 // You may need to add to this function, definitely don't delete it.
 const movieDetails = async (movie) => {
   const movieRes = await fetchMovie(movie.id);
-  renderMovie(movieRes);
+  const actorRes = await fetchActors(movie.id);
+  renderMovie(movieRes, actorRes);
 };
 
 // This function is to fetch movies. You may need to add it or change some part in it in order to apply some of the features.
 const fetchMovies = async () => {
   const url = constructUrl(`movie/now_playing`);
   const res = await fetch(url);
+  return res.json();
+};
+//Fetching actors
+const fetchActors = async (id) => {
+  const url = constructUrl(`movie/${id}/credits`);
+  const res = await fetch(url);
+  //console.log(res.json())
   return res.json();
 };
 
@@ -54,14 +66,6 @@ const renderMovies = (movies) => {
   });
 };
 
-async function getSingleActor() {
-  const response = await fetch('http://image.tmdb.org/t/p/w185');// Is it actors API? Or we need to use a different thing to get actors?
-  const actor = await response.json();
-    return actor;
-    fetchActorJSON().then(actor => {
-    actor; // should fetch a single actor ??
-  });
-  } 
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovie = (movie) => {
   CONTAINER.innerHTML = `
