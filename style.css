@@ -1,183 +1,181 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: sans-serif;
-  }
-  
-  body {
-    width: 100%;
-    height: 100vh;
-    background: #f5f5f5;
-  }
-  
-  /* general outline css */
-  .wrapper {
-    background-color: rgb(22, 20, 20);
-    position: fixed;
-    top: 0;
-    left: 0;
-  
-    width: 100%;
-  }
-  .wrapper nav {
-    position: relative;
-    display: flex;
-    max-width: calc(100% - 200px);
-    margin: 0 auto;
-    height: 70px;
-    justify-content: space-between;
-  }
-  
-  /* navbar content */
-  nav .content {
-    display: flex;
-    align-items: center;
-  }
-  
-  nav .content .links {
-    margin-left: 80px;
-    display: flex;
-  }
-  
-  .content .logo a {
-    color: #fff;
-    font-size: 30px;
-    font-weight: 600;
-  }
-  .content .links li {
-    list-style: none;
-  }
-  .content .links li a {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 7px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-  
-  .content .links li:hover a {
-    background: rgb(37, 35, 35);
-  }
-  
-  /* search and menu icon */
-  
-  .icons {
-    display: flex;
-    align-items: center;
-  }
-  
-  .icons .search-icon {
-    display: block;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    line-height: 70px;
-    width: 70px;
-    text-align: center;
-  }
-  .icons .cancel-icon {
-    display: none;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    line-height: 70px;
-    width: 70px;
-    text-align: center;
-  }
-  
-  .wrapper .menu-icon {
-    display: none;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    line-height: 70px;
-    width: 70px;
-    text-align: center;
-  }
-  /* for seach to close but does not work don't know why */
-  .wrapper #show-search:checked ~ .search-icon i::before {
-    content: "\f00d";
-  }
-  
-  .wrapper #close-search:checked ~ .search {
-    display: none;
-  }
-  
-  .wrapper .search-box {
-    position: absolute;
-    height: 100%;
-    max-width: calc(100% - 150px);
-    width: 100%;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3 ease;
-  }
-  
-  #close-menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    color: #f2f2f2;
-  }
-  
-  .wrapper #show-search:checked ~ .search-box {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
-  .wrapper #close-search:checked ~ .search-box {
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  .search-box input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-size: 17px;
-    color: #fff;
-    background: #171c24;
-    padding: 0 100px 0 15px;
-  }
-  
-  .search-box input::placeholder {
-    color: #f2f2f2;
-  }
-  
-  .search-box .go-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    line-height: 60px;
-    width: 70px;
-    background: #171c24;
-    border: none;
-    outline: none;
-    color: #fff;
-  }
-  
-  .wrapper input[type="checkbox"] {
-    display: none;
-  }
-  
-  /* for boostrap */
-  ol,
-  ul,
-  dl {
-    margin: 0;
-  }
-  
-  /* container */
-  .container {
-    padding-top: 80px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  /* background: #f5f5f5; */
+}
+
+/* general outline css */
+.wrapper {
+  background-color: rgb(22, 20, 20);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.wrapper nav {
+  position: relative;
+  display: flex;
+  max-width: calc(100% - 200px);
+  margin: 0 auto;
+  height: 70px;
+  justify-content: space-between;
+}
+
+/* navbar content */
+nav .content {
+  display: flex;
+  align-items: center;
+}
+
+nav .content .links {
+  margin-left: 80px;
+  display: flex;
+}
+
+.content .logo a {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+}
+.content .links li {
+  list-style: none;
+}
+.content .links li a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 7px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.content .links li:hover a {
+  background: rgb(37, 35, 35);
+}
+
+/* search and menu icon */
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icons .search-icon {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 70px;
+  width: 70px;
+  text-align: center;
+}
+.icons .cancel-icon {
+  display: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 70px;
+  width: 70px;
+  text-align: center;
+}
+
+.wrapper .menu-icon {
+  display: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 70px;
+  width: 70px;
+  text-align: center;
+}
+/* for seach to close but does not work don't know why */
+.wrapper #show-search:checked ~ .search-icon i::before {
+  content: "\f00d";
+}
+
+.wrapper #close-search:checked ~ .search {
+  display: none;
+}
+
+.wrapper .search-box {
+  position: absolute;
+  height: 100%;
+  max-width: calc(100% - 150px);
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3 ease;
+}
+
+#close-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #f2f2f2;
+}
+
+.wrapper #show-search:checked ~ .search-box {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wrapper #close-search:checked ~ .search-box {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  color: #fff;
+  background: #171c24;
+  padding: 0 100px 0 15px;
+}
+
+.search-box input::placeholder {
+  color: #f2f2f2;
+}
+
+.search-box .go-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 60px;
+  width: 70px;
+  background: #171c24;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+.wrapper input[type="checkbox"] {
+  display: none;
+}
+
+/* for boostrap */
+ol,
+ul,
+dl {
+  margin: 0;
+}
+
+/* container */
+.container {
+  padding-top: 150px;
+}
 
 /* Dropdown */
 
@@ -185,7 +183,8 @@ li {
   float: left;
 }
 
-li a, .dropbtn {
+li a,
+.dropbtn {
   display: inline-block;
   color: white;
   text-align: center;
@@ -213,57 +212,166 @@ li.dropdown {
   text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
+/* container part */
 
-  /* For Responsivity */
-  @media screen and (max-width: 1250px) {
-    .wrapper nav {
-      max-width: 100%;
-      padding: 0 20px;
-    }
-    nav .content .links {
-      margin-left: 30px;
-    }
-    .content .links li a {
-      padding: 8px 13px;
-    }
-    .wrapper .search-box {
-      max-width: calc(100%-100px);
-    }
-    .wrapper .search-box input {
-      padding: 0 100px 0 15px;
-    }
+.movies {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 1rem;
+}
+
+.movie-container {
+  border-radius: 5px;
+  width: 100%;
+  position: relative;
+}
+
+.container .movieCard {
+  cursor: pointer;
+}
+
+.container .movieCard .face {
+  width: 350px;
+  height: 350px;
+  transition: 0.5s;
+}
+
+.container .movieCard .dropdown-info {
+  width: 350px;
+
+  transition: 0.5s;
+}
+
+.container .movieCard .face.face1 {
+  position: relative;
+  background-color: rgb(48, 48, 48);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.container .movieCard:hover .face.face1 {
+  background: #ff0057;
+  transform: translateY(0);
+}
+
+.container .movieCard .face.face1 .content {
+  opacity: 0.2;
+  transition: 0.5s;
+}
+
+.container .movieCard:hover .face.face1 .content {
+  opacity: 1;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.container .movieCard .face.face1 .content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container .movieCard .face.face1 .content h3 {
+  margin: 10px 0 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.container .movieCard .dropdown-info.face2 {
+  position: relative;
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-250px);
+  padding: 20px;
+}
+
+.container .movieCard:hover .dropdown-info.face2 {
+  transform: translateY(0);
+}
+
+.container .card .dropdown-info.face2 .content p {
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.star {
+  color: #f1c40f;
+}
+
+.star span {
+  color: #000;
+}
+
+.genre {
+  font-weight: bolder;
+}
+
+/* single movie page */
+.single-movie {
+  padding-top: 100px;
+}
+
+.actors-nav {
+  cursor: pointer;
+}
+
+/* For Responsivity */
+@media screen and (max-width: 1250px) {
+  .wrapper nav {
+    max-width: 100%;
+    padding: 0 20px;
   }
-  
-  @media screen and (max-width: 900px) {
-    .wrapper .menu-icon {
-      display: block;
-    }
-    nav .content .links {
-      display: none;
-      position: fixed;
-      background: rgb(22, 20, 20);
-      height: 100%;
-      width: 100%;
-      top: 60px;
-      left: 0;
-      margin-left: 0;
-      max-width: 350px;
-    }
-  
-    .content .links li {
-      margin: 15px 20px;
-    }
-    .content .links li a {
-      line-height: 40px;
-      font-size: 20px;
-      display: block;
-      padding: 8px 18px;
-    }
+  nav .content .links {
+    margin-left: 30px;
   }
-  
+  .content .links li a {
+    padding: 8px 13px;
+  }
+  .wrapper .search-box {
+    max-width: calc(100%-100px);
+  }
+  .wrapper .search-box input {
+    padding: 0 100px 0 15px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper .menu-icon {
+    display: block;
+  }
+  nav .content .links {
+    display: none;
+    position: fixed;
+    background: rgb(22, 20, 20);
+    height: 100%;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    margin-left: 0;
+    max-width: 350px;
+  }
+
+  .content .links li {
+    margin: 15px 20px;
+  }
+  .content .links li a {
+    line-height: 40px;
+    font-size: 20px;
+    display: block;
+    padding: 8px 18px;
+  }
+}
