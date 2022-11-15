@@ -31,12 +31,12 @@ const fetchMovies = async () => {
   const res = await fetch(url);
   return res.json();
 };
-//Fetching actors
-const fetchActors = async (id) => {
-  const url = constructUrl(`movie/${id}/credits`); //creates new URL 
-  const res = await fetch(url); //fetches URL
+//Fetching single movie credits
+const fetchMovieCredits = async (id) => {
+  const url = constructUrl(`movie/${id}/credits`);  
+  const res = await fetch(url); 
   //console.log(res.json())
-  return res.json(); //returns into JSON
+  return res.json();
 };
 
 // Don't touch this function please. This function is to fetch one movie.
