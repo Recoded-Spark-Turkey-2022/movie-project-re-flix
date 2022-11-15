@@ -62,6 +62,52 @@ const fetchActor = async (actorId) => {
   return res.json();
 };
 
+/* Filter starts here */
+/* Popular movies */
+const fetchPopular = async () => {
+  const url = constructUrl(`movie/popular`);
+  const res = await fetch(url);
+  return res.json();
+}
+const popularNav = document.getElementById('popular');
+popularNav.addEventListener('click', async() =>{
+  const popular = await fetchPopular();
+  renderPopularMovies(popular.results);
+  /* console.log(popular.results); */
+})
+
+/* Top Rated */
+const fetchTopRated = async () => {
+  const url = constructUrl(`movie/top_rated`);
+  const res = await fetch(url);
+  return res.json();
+}
+const topRatedNav = document.getElementById('top-rated');
+popularNav.addEventListener('click', async() =>{
+  const topRated = await fetchTopRated();
+  renderMovies(topRated);
+})
+
+/* Now Playing */
+const fetchNowPlaying = async () => {
+  const url = constructUrl(`movie/now_playing`);
+  const res = await fetch(url);
+  return res.json();
+}
+
+/* Up Coming */
+const fetchUpComing = async () => {
+  const url = constructUrl(`movie/upcoming`);
+  const res = await fetch(url);
+  return res.json();
+}
+const upComingNav = document.getElementById('up-coming');
+upComingNav.addEventListener('click', async() =>{
+  const upComing = await fetchUpComing();
+  renderMovies(upComing);
+})
+/* Filter ends here */
+
 const fetchGenres = async () => {
   const url = constructUrl(`genre/movie/list`);
   const res = await fetch(url);
@@ -108,6 +154,49 @@ fetch("./genres.json")
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovies = (movies) => {
   movies.map((movie) => {
+    const genreNames = movie.genre_ids.map((id) => {
+      const genre = genres.find((genre) => genre.id === id);
+      return genre.name;
+    });
+
+    const movieDiv = document.createElement("div");
+    movieDiv.className = "movie-container ";
+    movieDiv.innerHTML = `
+    <div class=" movieCard">
+    <div class="face face1">
+        <div class="content">
+        <img src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${
+      movie.title
+    } poster">
+        <h3>${movie.title}</h3>
+          </div>
+        </div>
+        <div class="dropdown-info face2">
+        <div class="content">
+        <i class="fa-solid fa-star star">
+        <span class="rating">${movie.vote_average}</span>
+        </i>  
+        <p class="genre">${genreNames.join(", ")}</p>
+        <p>${
+          movie.overview.length > 100
+            ? movie.overview.substring(0, 100) + "..."
+            : movie.overview
+        }</p>
+        <button type="button" class="btn btn-info btn-rounded">Click here for more details...</button>
+        </div>
+    </div>
+    </div>`;
+    movieDiv.addEventListener("click", () => {
+      movieDetails(movie);
+    });
+
+    CONTAINER.appendChild(movieDiv);
+  });
+};
+
+/* Popular movies */
+const renderPopularMovies = (popular) => {
+  popular.map((movie) => {
     const genreNames = movie.genre_ids.map((id) => {
       const genre = genres.find((genre) => genre.id === id);
       return genre.name;
