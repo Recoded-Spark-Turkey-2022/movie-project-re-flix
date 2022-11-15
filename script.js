@@ -21,13 +21,21 @@ const constructUrl = (path) => {
 // You may need to add to this function, definitely don't delete it.
 const movieDetails = async (movie) => {
   const movieRes = await fetchMovie(movie.id);
-  renderMovie(movieRes);
+  const actorRes = await fetchActors(movie.id);
+  renderMovie(movieRes, actorRes);
 };
 
 // This function is to fetch movies. You may need to add it or change some part in it in order to apply some of the features.
 const fetchMovies = async () => {
   const url = constructUrl(`movie/now_playing`);
   const res = await fetch(url);
+  return res.json();
+};
+//Fetching single movie credits
+const fetchMovieCredits = async (id) => {
+  const url = constructUrl(`movie/${id}/credits`);  
+  const res = await fetch(url); 
+  //console.log(res.json())
   return res.json();
 };
 
