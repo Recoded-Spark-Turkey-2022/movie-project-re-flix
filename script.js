@@ -80,4 +80,28 @@ const renderMovie = (movie) => {
 
 document.addEventListener("DOMContentLoaded", autorun);
 
+//!ToggleButton display
 
+function toggleNav() {
+  const navLinks = document.getElementsByClassName("links");
+  if (navLinks[0].style.display === "block") {
+    navLinks[0].style.display = "none";
+  } else {
+    navLinks[0].style.display = "block";
+  }
+}
+
+function toggleSearch() {
+  let search = document.querySelector(".search-icon");
+  let close = document.querySelector(".cancel-icon");
+  let searchBar = document.querySelector(".search-box");
+  if (searchBar.style.opacity === "0") {
+    searchBar.style.opacity = "1";
+    search.style.display = "none";
+    close.style.display = "block";
+  } else {
+    searchBar.style.opacity = "0";
+    search.style.display = "block";
+    close.style.display = "none";
+  }
+}

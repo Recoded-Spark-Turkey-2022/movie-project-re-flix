@@ -1,249 +1,269 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     font-family: sans-serif;
-}
-
-/* general outline css */
-.wrapper{
-    background-color: rgb(22, 20, 20);
-    position:fixed;
+  }
+  
+  body {
     width: 100%;
-}
-.wrapper nav{
+    height: 100vh;
+    background: #f5f5f5;
+  }
+  
+  /* general outline css */
+  .wrapper {
+    background-color: rgb(22, 20, 20);
+    position: fixed;
+    top: 0;
+    left: 0;
+  
+    width: 100%;
+  }
+  .wrapper nav {
     position: relative;
     display: flex;
     max-width: calc(100% - 200px);
-    margin:0 auto;
-    height:70px;
+    margin: 0 auto;
+    height: 70px;
     justify-content: space-between;
-}
-
-/* navbar content */
-nav .content{
+  }
+  
+  /* navbar content */
+  nav .content {
     display: flex;
     align-items: center;
-}
-
-nav .content .links{
+  }
+  
+  nav .content .links {
     margin-left: 80px;
     display: flex;
-}
-
-.content .logo a{
+  }
+  
+  .content .logo a {
     color: #fff;
     font-size: 30px;
     font-weight: 600;
-}
-.content .links li{
+  }
+  .content .links li {
     list-style: none;
-    line-height: 70px;
-}
-.content .links li a,
-.content .links li label{
+  }
+  .content .links li a {
     color: #fff;
     font-size: 18px;
     font-weight: 500;
     padding: 7px 15px;
     border-radius: 5px;
     transition: all 0.3s ease;
-}
-.content .links li label{
-    display: none;
-}
-
-.content .links li a:hover,
-.content .links li label:hover{
+  }
+  
+  .content .links li:hover a {
     background: rgb(37, 35, 35);
-}
-
-/* search and menu icon */
-.wrapper .search-icon,
-.wrapper .menu-icon{
-    color:#fff;
+  }
+  
+  /* search and menu icon */
+  
+  .icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icons .search-icon {
+    display: block;
+    color: #fff;
     font-size: 18px;
     cursor: pointer;
     line-height: 70px;
     width: 70px;
     text-align: center;
-}
-.wrapper .menu-icon{
+  }
+  .icons .cancel-icon {
     display: none;
-}
-/* for seach to close but does not work don't know why */
-.wrapper #show-search:checked ~ .search-icon i::before{
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 70px;
+    width: 70px;
+    text-align: center;
+  }
+  
+  .wrapper .menu-icon {
+    display: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 70px;
+    width: 70px;
+    text-align: center;
+  }
+  /* for seach to close but does not work don't know why */
+  .wrapper #show-search:checked ~ .search-icon i::before {
     content: "\f00d";
-}
-
-.wrapper .search-box{
+  }
+  
+  .wrapper #close-search:checked ~ .search {
+    display: none;
+  }
+  
+  .wrapper .search-box {
     position: absolute;
     height: 100%;
-    max-width: calc(100%-150px);
+    max-width: calc(100% - 150px);
     width: 100%;
     opacity: 0;
     pointer-events: none;
     transition: all 0.3 ease;
-}
-
-.wrapper #show-search:checked ~ .search-box{
+  }
+  
+  #close-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #f2f2f2;
+  }
+  
+  .wrapper #show-search:checked ~ .search-box {
     opacity: 1;
     pointer-events: auto;
-}
-
-.search-box input{
-    max-width: calc(100%-150px);
+  }
+  
+  .wrapper #close-search:checked ~ .search-box {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .search-box input {
+    width: 100%;
     height: 100%;
     border: none;
     outline: none;
     font-size: 17px;
     color: #fff;
     background: #171c24;
-    padding: 0px 100px 0 100px;
-}
-
-.search-box input::placeholder{
+    padding: 0 100px 0 15px;
+  }
+  
+  .search-box input::placeholder {
     color: #f2f2f2;
-}
-
-.search-box .go-icon{
+  }
+  
+  .search-box .go-icon {
     position: absolute;
     right: 10px;
     top: 50%;
-    transform: translateY(-50%) ;
+    transform: translateY(-50%);
     line-height: 60px;
     width: 70px;
     background: #171c24;
     border: none;
     outline: none;
     color: #fff;
-}
-
-.wrapper input[type="checkbox"]{
+  }
+  
+  .wrapper input[type="checkbox"] {
     display: none;
+  }
+  
+  /* for boostrap */
+  ol,
+  ul,
+  dl {
+    margin: 0;
+  }
+  
+  /* container */
+  .container {
+    padding-top: 80px;
+  }
+  
+
+/* Dropdown */
+
+li {
+  float: left;
 }
 
-/* Dropdown menu */
-.content .links ul{
-    position: absolute;
-    background: #171c24;
-    top: 50px;
-    z-index: -1;
-    opacity: 0;
-    visibility: hidden;
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-.content .links li:hover ul{
-    top: 70px;
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.3s ease;
-}
-.content .links ul li a{
-    display: block;
-    width: 100%;
-    line-height: 30px;
-    border-radius: 0px!important;
+li.dropdown {
+  display: inline-block;
 }
 
-
-
-/* For Responsivity */
-@media screen and (max-width: 1250px){
-    .wrapper nav{
-        max-width: 100%;
-        padding: 0 20px;
-    }
-    nav .content .links{
-        margin-left: 30px;
-    }
-    .content .links li a{
-        padding: 8px 13px;
-    }
-    .wrapper .search-box{
-        max-width: calc(100%-100px);
-    }
-    .wrapper .search-box input{
-        padding: 0 100px 0 15px;
-    }
-}
-    
-@media screen and (max-width:900px){
-    .wrapper .menu-icon{
-        display: block;
-    }
-    nav .content .links{
-        display: block;
-        position: fixed;
-        background: rgb(22, 20, 20);
-        height: 100%;
-        width: 100%;
-        top:70px;
-        left: 0;
-        margin-left: 0;
-        max-width: 350px;
-        overflow-y: auto;
-        padding-bottom: 100px;
-        transition: all 0.3s ease;
-    }
-    .content .links li{
-        margin: 15px 20px;
-    }
-    .content .links li a,
-    .content .links li label{
-        line-height: 40px;
-        font-size: 20px;
-        display: block;
-        padding: 8px 18px;
-        cursor: pointer;
-    }
-
-    .content .links li a.desktop-link{
-        display: none;
-    }
-
-   /* dropdown responsiveness */
-    .content .links ul,
-    .content .links ul ul{
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        background: none;
-        max-height: 0px;
-        overflow: hidden;
-    }
-    /* this should have show the dropdown section but again does not work :( need HELP */
-    .content .links #show-genres:checked ~ ul,
-    .content .links #show-filter:checked ~ ul{
-        max-height: 100vh;
-    }
-    .content .links ul li{
-        margin: 7px 20px;
-    }
-
-    .content .links ul li a{
-        font-size: 18px;
-        line-height: 30px;
-        border-radius: 5px!important;
-    }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgb(22, 20, 20);
+  z-index: 1;
 }
 
-@media screen and (max-width:400px){
-    .wrapper nav{
-        padding: 0 10px;
-    }
-    .content .logo a{
-        font-size: 27px;
-    }
-    .wrapper .search-box{
-        max-width: calc(100%-70px);
-    }
-    .wrapper .search-box .go-icon{
-        width: 30px;
-        right: 0;
-    }
-    .wrapper .search-box input{
-        padding-right: 30px;
-    }
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+  /* For Responsivity */
+  @media screen and (max-width: 1250px) {
+    .wrapper nav {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+    nav .content .links {
+      margin-left: 30px;
+    }
+    .content .links li a {
+      padding: 8px 13px;
+    }
+    .wrapper .search-box {
+      max-width: calc(100%-100px);
+    }
+    .wrapper .search-box input {
+      padding: 0 100px 0 15px;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .wrapper .menu-icon {
+      display: block;
+    }
+    nav .content .links {
+      display: none;
+      position: fixed;
+      background: rgb(22, 20, 20);
+      height: 100%;
+      width: 100%;
+      top: 60px;
+      left: 0;
+      margin-left: 0;
+      max-width: 350px;
+    }
+  
+    .content .links li {
+      margin: 15px 20px;
+    }
+    .content .links li a {
+      line-height: 40px;
+      font-size: 20px;
+      display: block;
+      padding: 8px 18px;
+    }
+  }
+  
